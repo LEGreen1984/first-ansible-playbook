@@ -1,0 +1,15 @@
+___
+- name: install nginx
+#specifies hosts used for this action
+  hosts: all
+# gives the package root access
+  become: true
+
+  tasks:
+    yum:
+      name: nginx
+      state: latest
+
+      service:
+        name: nginx
+        start: started
