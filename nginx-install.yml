@@ -1,4 +1,3 @@
-___
 - name: install nginx
 #specifies hosts used for this action
   hosts: all
@@ -6,10 +5,12 @@ ___
   become: true
 
   tasks:
+  - name: install nginx
     yum:
       name: nginx
       state: latest
 
-      service:
-        name: nginx
-        start: started
+  - name: start nginx
+    service:
+      name: nginx
+      start: started
